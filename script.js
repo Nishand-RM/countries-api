@@ -21,7 +21,7 @@ function foo(data1) {
   
     <p class="card-title" style="font-size: medium; text-align: center;">Capital:${data1[i].capital}</p>
            <p class="card-title" style="font-size: medium; text-align: center;">Region:${data1[i].region}</p>
-             <p class="card-title" style="font-size: medium; text-align: center;">Region:${data1[i].cca3}</p>
+             <p class="card-title" style="font-size: medium; text-align: center;">Code:${data1[i].cca3}</p>
     <a href="#" class="btn btn-primary">Click For Weather</a>
     <br>
   </div>
