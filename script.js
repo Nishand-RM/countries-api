@@ -21,8 +21,10 @@ function foo(data1) {
   
     <p class="card-title" style="font-size: medium; text-align: center;">Capital:${data1[i].capital}</p>
            <p class="card-title" style="font-size: medium; text-align: center;">Region:${data1[i].region}</p>
-             <p class="card-title" style="font-size: medium; text-align: center;">Code:${data1[i].cca3}</p>
-    <a href="#" class="btn btn-primary">Click For Weather</a>
+             <p class="card-title" style="font-size: medium; text-align: center;">Region:${data1[i].cca3}</p>
+
+                 <button class="btn btn-primary" type="button" onclick="clickme(${data1[i].latlng[0]}, ${data1[i].latlng[1]})">Click For Weather</button>
+
     <br>
   </div>
 </div>`
@@ -31,3 +33,15 @@ function foo(data1) {
         document.body.append(container);
     }
 }
+
+async function clickme(lat, lon) {
+    try {
+        let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ea20e3b2efab9d8b77a5d783bdd3e81c`);
+        let data = await res.json();
+        console.log(`Country is: (${data.sys.country}) and its temperature is: ${data.main.temp}K`);
+    } catch (error) {
+        console.log(error);
+    }
+}
+        
+clickme();
